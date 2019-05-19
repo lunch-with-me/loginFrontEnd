@@ -1,0 +1,31 @@
+<div class="container">
+    
+      
+    <div class="headerbar">
+    
+
+        <button mat-raised-button color="primary" (click)="movetodashboard()"><mat-icon aria-label="Example icon-button with a heart icon">arrow_back</mat-icon></button>
+
+      <div class="header_name">
+    <span>Lunch With ME- My profile</span>
+
+    </div><!--headder name"-->
+    </div><!-- headerbar-->
+
+
+
+    <div class="boom">
+     <form #imageForm = ngForm>
+        <img [src]="imageUrl"   style="width:250px;height:200px">
+        <input type="file" #Image accept="image/*" (change)= "handleFileInput($event.target.files)">
+        <button type="submit" class="btn-largr-btn-submit"> submit</button>
+     </form>
+
+
+     <h1 class="display-4">Hello, {{username}}!</h1>
+     <h1 class="display-4">Hello, {{username}}!</h1>
+
+       
+    </div><!--boom-->
+
+    </div><!--container-->
