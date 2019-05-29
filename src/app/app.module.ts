@@ -22,7 +22,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -33,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterDetailsComponent } from './register-details/register-details.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -46,6 +47,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     RegisterDetailsComponent,
     ChangePasswordComponent,
     MyprofileComponent,
+    SettingsComponent,
   
    
   ],
@@ -63,6 +65,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     MatFormFieldModule,
     MatCheckboxModule,
     MatMenuModule,
+    MatTooltipModule,
     MatSliderModule,
     MatIconModule,
     MatSidenavModule,

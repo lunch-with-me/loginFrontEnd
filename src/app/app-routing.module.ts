@@ -8,6 +8,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { RegisterDetailsComponent } from './register-details/register-details.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { SettingsComponent } from './settings/settings.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -24,7 +26,7 @@ const routes: Routes = [
   {path: 'dash' , component: UserDashboardComponent},
   {path: 'registerdetails' , component: RegisterDetailsComponent},
   {path:'myprofile',component:MyprofileComponent},
- 
+  {path:'settings',component:SettingsComponent},
 ];
 
 @NgModule({

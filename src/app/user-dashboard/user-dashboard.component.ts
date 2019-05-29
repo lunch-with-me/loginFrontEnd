@@ -19,12 +19,8 @@ export class UserDashboardComponent implements OnInit {
       data => this.username= data.toString(),
      // error => this._router.navigate(['/main/login'])
     )
+   
 
-    this.myService.getEmail()
-    .subscribe(
-      data => this.email= data.toString(),
-     // error => this._router.navigate(['/main/login'])
-    )
   }
 
 
@@ -37,4 +33,13 @@ export class UserDashboardComponent implements OnInit {
     localStorage.removeItem('token');
     this._router.navigate(['/main/login']);
   }
+
+
+  movetoprofile() {
+    this._router.navigate(['/myprofile']);
+  }
+  movetosettings(){
+    this._router.navigate(['/settings']); 
+  }
+  
 }

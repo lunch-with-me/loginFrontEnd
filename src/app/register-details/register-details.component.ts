@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 //import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MyserviceService } from '../myservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import{FormGroup, FormControl, Validators} from '@angular/forms';
+
 
 
 
@@ -17,6 +18,12 @@ import{FormGroup, FormControl, Validators} from '@angular/forms';
 
 
 export class RegisterDetailsComponent implements OnInit {
+
+
+  // @Input('username') userName:string;
+
+ 
+
   imageUrl:string = "/assets/images/default.png";
   fileToUpload: File = null;
 
@@ -32,7 +39,8 @@ export class RegisterDetailsComponent implements OnInit {
 
   registerForm: FormGroup= new FormGroup({
     //username: new FormControl(null, Validators.required),
-    username: new FormControl(null),
+  
+    fullname: new FormControl(null),
     gender: new FormControl(null),
     date_of_birth:new FormControl(null),
     message:new FormControl(null),
@@ -42,10 +50,11 @@ export class RegisterDetailsComponent implements OnInit {
  // favFruits: this.addFruitsControls(),
   })
  
-  constructor(private _myservice: MyserviceService,private _router: Router) {}
+  constructor(private myService:MyserviceService,private _router: Router) { 
+  }
 
   ngOnInit() {
-    
+   
   }
   
 
@@ -56,15 +65,26 @@ export class RegisterDetailsComponent implements OnInit {
       console.log('Invalid frotm'); return;
           //   this._router.navigate(['/']);  
     }
-    this._myservice.submitRegi(JSON.stringify(this.registerForm.value))
+
+var obj = this.registerForm.value;
+obj.email = localStorage.getItem("email");
+
+console.log("send data - "+JSON.stringify(obj))
+
+    var useemail = localStorage.getItem("email")
+    console.log("email - "+useemail)
+    this.myService.submitRegi(JSON.stringify(obj))
    // console.log(JSON.stringify(this.registerForm.value));
 .subscribe(
   data=>{console.log(data);
-    this._router.navigate(['/dash']);
+    localStorage.removeItem("email")
+    this._router.navigate(['/main/login']);
     error=>console.error(error)
   }
 )  
   }
+
+
   handleFileInput(file :FileList){
     this.fileToUpload = file.item(0);
     //show image preview

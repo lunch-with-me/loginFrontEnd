@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label>Full Name*</label>
                 <mat-form-field style="width:100%;">
-                    <input type="text" formControlName="username" matInput placeholder=" " id="user">
+                    <input type="text" formControlName="fullname" matInput placeholder=" " id="user">
                 </mat-form-field>
                 <!--<span *ngIf="isValid('username')">Username is required</span>-->
             </div>
@@ -89,7 +89,7 @@
             
     
         
-       
+    
 
 
             
@@ -107,7 +107,7 @@
       </div><!--col-sm-8-->
         <div class="panel-footer">
            
-            <button class="btn btn-success" (click)="register()">save</button>
+            <button id="btnSubmit"class="btn btn-success" (click)="register()">save</button>
         </div>
       </div>
     </div>

@@ -14,14 +14,25 @@ export class MyprofileComponent implements OnInit {
 
 
   username = '';
-  constructor(private myService:MyserviceService,
-  private _router: Router) { 
+  email =  '';
+  constructor(private myService:MyserviceService,private _router: Router) { 
+
     this.myService.getUserName()
     .subscribe(
       data => this.username= data.toString(),
     
     )
+
+    this.myService.getEmail()
+    .subscribe(
+      data => this.email= data.toString(),
+  //    error=>this._router.navigate(['/login'])
+    )
   }
+
+  
+
+
   
   ngOnInit() {
   }

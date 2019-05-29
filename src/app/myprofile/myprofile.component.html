@@ -20,12 +20,39 @@
         <input type="file" #Image accept="image/*" (change)= "handleFileInput($event.target.files)">
         <button type="submit" class="btn-largr-btn-submit"> submit</button>
      </form>
-
-
-     <h1 class="display-4">Hello, {{username}}!</h1>
-     <h1 class="display-4">Hello, {{username}}!</h1>
-
-       
+ <br>
+       <label>Edit User Name</label> 
+       <br>
+        <mat-form-field appearance="standard">  
+        <mat-label>{{username}}</mat-label>
+          <input matInput placeholder="Edit your name">
+          <mat-icon matSuffix>edit</mat-icon>
+         </mat-form-field>
+      <br>
+         <label>Edit Telephone Number</label> 
+         <br>
+          <mat-form-field appearance="standard">  
+          <mat-label>{{email}}</mat-label>
+            <input matInput placeholder="Edit your name">
+            <mat-icon matSuffix>edit</mat-icon>
+           </mat-form-field>
+           <br>
+       <label>Edit User Name</label> 
+       <br>
+        <mat-form-field appearance="standard">  
+        <mat-label></mat-label>
+          <input matInput placeholder="Edit your name">
+          <mat-icon matSuffix>edit</mat-icon>
+         </mat-form-field>
+         <br>
+       <label>Edit User Name</label> 
+       <br>
+        <mat-form-field appearance="standard">  
+        <mat-label></mat-label>
+          <input matInput placeholder="Edit your name">
+          <mat-icon matSuffix>edit</mat-icon>
+         </mat-form-field>
+<br>
     </div><!--boom-->
 
     </div><!--container-->

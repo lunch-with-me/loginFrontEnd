@@ -12,11 +12,9 @@ export class RegisterComponent implements OnInit {
 
   myForm: FormGroup;
   successMessage: String = '';
-  constructor(private _myservice: MyserviceService,
-    private _router: Router,
-    private _activatedRoute: ActivatedRoute) {
+  constructor(private _myservice: MyserviceService, private _router: Router,private _activatedRoute: ActivatedRoute) {
     this.myForm = new FormGroup({
-      email: new FormControl(null, Validators.email),
+      email: new FormControl(null, Validators.required),
       username: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
       cnfpass: new FormControl(null, this.passValidator)
@@ -56,10 +54,14 @@ export class RegisterComponent implements OnInit {
   register() {
     console.log(this.myForm.value);
 
+
+localStorage.setItem("email",this.myForm.value.email)
+
     if (this.myForm.valid) {
-      this._myservice.submitRegister(this.myForm.value)
+     this._myservice.submitRegister(this.myForm.value)
         .subscribe(
           data => {
+            console.log("efrfrf4rffrf");
             this.successMessage = 'Registration Success';
              this._router.navigate(['/registerdetails']);
           
