@@ -23,7 +23,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
@@ -34,6 +34,7 @@ import { RegisterDetailsComponent } from './register-details/register-details.co
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 
 
 
@@ -48,6 +49,7 @@ import { SettingsComponent } from './settings/settings.component';
     ChangePasswordComponent,
     MyprofileComponent,
     SettingsComponent,
+    AlertDialogComponent,
   
    
   ],
@@ -69,6 +71,7 @@ import { SettingsComponent } from './settings/settings.component';
     MatSliderModule,
     MatIconModule,
     MatSidenavModule,
+    MatDialogModule,
     
    
     MatCardModule,

@@ -12,9 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   successMessage: String = '';
-  constructor(private _myservice: MyserviceService,
-    private _router: Router,
-    private _activatedRoute: ActivatedRoute) {
+  constructor(private _myservice: MyserviceService,private _router: Router,private _activatedRoute: ActivatedRoute) {
     this.loginForm = new FormGroup({
       email: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required)
@@ -49,7 +47,7 @@ export class LoginComponent implements OnInit {
     this._router.navigate(['../register'], { relativeTo: this._activatedRoute });
   }
 
-  abc() {
+  changePassword() {
     this._router.navigate(['../change_password'], { relativeTo: this._activatedRoute });
   }
 }

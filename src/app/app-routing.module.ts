@@ -9,6 +9,7 @@ import { RegisterDetailsComponent } from './register-details/register-details.co
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'registerdetails' , component: RegisterDetailsComponent},
   {path:'myprofile',component:MyprofileComponent},
   {path:'settings',component:SettingsComponent},
+  {path:'alertdialog',component:AlertDialogComponent}
 ];
 
 @NgModule({

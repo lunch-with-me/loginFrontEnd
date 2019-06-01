@@ -28,6 +28,12 @@ export class MyprofileComponent implements OnInit {
       data => this.email= data.toString(),
   //    error=>this._router.navigate(['/login'])
     )
+// // this.myService.getTelephoneNuber()
+// .subscribe(
+//   data => this.telephone= data.toString(),
+// //    error=>this._router.navigate(['/login'])
+// )
+
   }
 
   

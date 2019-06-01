@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MyserviceService } from '../myservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import{FormGroup, FormControl, Validators} from '@angular/forms';
+import{MatDialog}from '@angular/material';
+import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 
 
 
@@ -22,7 +24,7 @@ export class RegisterDetailsComponent implements OnInit {
 
   // @Input('username') userName:string;
 
- 
+  
 
   imageUrl:string = "/assets/images/default.png";
   fileToUpload: File = null;
@@ -40,18 +42,32 @@ export class RegisterDetailsComponent implements OnInit {
   registerForm: FormGroup= new FormGroup({
     //username: new FormControl(null, Validators.required),
   
-    fullname: new FormControl(null),
-    gender: new FormControl(null),
-    date_of_birth:new FormControl(null),
-    message:new FormControl(null),
-    telephone:new FormControl(null),
-   profession:new FormControl(null),
+    fullname: new FormControl(null, Validators.required),
+    gender: new FormControl(null, Validators.required),
+    date_of_birth:new FormControl(null, Validators.required),
+    message:new FormControl(null, Validators.required),
+    telephone:new FormControl(null, Validators.required),
+   profession:new FormControl(null, Validators.required),
    image:new FormControl(null),
  // favFruits: this.addFruitsControls(),
   })
  
-  constructor(private myService:MyserviceService,private _router: Router) { 
+  constructor(public dialog:MatDialog,private myService:MyserviceService,private _router: Router) { 
   }
+
+// alert dialgo box part
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AlertDialogComponent, {
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     console.log(result);
+    });
+  }
+
+
 
   ngOnInit() {
    
@@ -62,10 +78,10 @@ export class RegisterDetailsComponent implements OnInit {
   register() {
     if (!this.registerForm.valid) {
     //  this._myservice.submitRegi(this.myForm.value)
-      console.log('Invalid frotm'); return;
+      console.log('Invalid form'); return;
           //   this._router.navigate(['/']);  
     }
-
+    
 var obj = this.registerForm.value;
 obj.email = localStorage.getItem("email");
 
@@ -78,10 +94,12 @@ console.log("send data - "+JSON.stringify(obj))
 .subscribe(
   data=>{console.log(data);
     localStorage.removeItem("email")
-    this._router.navigate(['/main/login']);
+   // this._router.navigate(['/main/login']);
+    this.openDialog();
     error=>console.error(error)
   }
 )  
+
   }
 
 
